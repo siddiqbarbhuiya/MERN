@@ -1,0 +1,272 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins";
+  max-height: 100vh;
+}
+
+header {
+  background: #fff;
+}
+
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  /* Height of the footer */
+  background: #fff;
+}
+
+footer .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .container i {
+  padding: 15px;
+}
+
+
+header a {
+  color: #333;
+  text-decoration: none;
+}
+
+header a h1,
+h2 {
+  color: var(--primary);
+}
+
+header a .username:first-child {
+  margin-bottom: 0;
+}
+
+header a .username:nth-child(2) {
+  margin-top: 0;
+}
+
+
+.pages {
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* homepage */
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+
+.workout-details {
+  background: #fff;
+  border-radius: 8px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  overflow: scroll;
+}
+
+.workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+
+.workout-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+.workout-details span:hover {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 500;
+}
+
+.workout-button {
+  font-size: 20px;
+  position: fixed;
+  bottom: 35px;
+  width: 83%;
+  color: #fff;
+  background: var(--primary);
+  border: 0 solid;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-family: 'Poppins';
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.workout-button:hover {
+  color: var(--primary);
+  background-color: #fff;
+  border: 2px solid var(--primary);
+}
+
+
+/* new workout form */
+label,
+input {
+  display: block;
+}
+
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+div.small-error {
+  font-size: 15px;
+  color: var(--error);
+  background: #ffefef;
+  border-radius: 5px;
+  border: 1px solid var(--error);
+  margin: 20px 0;
+}
+
+input.error {
+  border: 1px solid var(--error);
+}
+
+/* for close butt */
+.title-close-button {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  padding: 10px;
+}
+
+
+/* navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 20px;
+  padding: 6px 15px;
+  font-weight: 500;
+}
+
+nav a {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 8px;
+
+}
+
+header nav a:hover {
+  background: #ddd;
+  color: #333;
+}
+
+nav button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-family: 'Poppins';
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+
+/* auth forms */
+form.signup,
+form.login {
+  margin-top: 40%;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+@media only screen and (max-width: 595px) and (orientation: portrait) {
+  .home {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+
+  header .container {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+::-webkit-scrollbar {
+  display: none;
+}
