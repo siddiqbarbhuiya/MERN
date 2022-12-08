@@ -40,7 +40,6 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   const fullName = `${user.firstName} ${user.lastName}`;
-  // console.log(fullName);
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -184,8 +183,9 @@ const Navbar = () => {
                     backgroundColor: neutralLight,
                   },
                 }}
-                input={<InputBase />}>
-                <MenuItem>
+                input={<InputBase />}
+                >
+                <MenuItem value={fullName}>
                   <Typography>{fullName}</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => dispatch(setLogout())}>

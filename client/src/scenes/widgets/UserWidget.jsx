@@ -11,6 +11,9 @@ import WidgetWrapper from "components/WidgetsWrapper";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import { uri } from "services/helpers";
+import { uri } from "services/helpers";
+
 
 const UserWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
@@ -22,7 +25,7 @@ const UserWidget = ({ userId, picturePath }) => {
   const main = palette.neutral.main;
 
   const getUser = async () => {
-    const response = await fetch(`http://localhost:4001/users/${userId}`, {
+    const response = await fetch(`${uri}/users/${userId}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -47,8 +50,6 @@ const UserWidget = ({ userId, picturePath }) => {
     impressions,
     friends,
   } = user;
-
-  console.log(user);
 
   return (
     <WidgetWrapper>
