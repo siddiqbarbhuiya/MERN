@@ -24,8 +24,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween";
+import UserImage from "components/UserImage";
+import WidgetWrapper from "components/WidgetsWrapper";
 
-const Navbar = () => {
+const Navbar = ({ picturePath, toggleUserWidget, setToggleUserWidget }) => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -40,6 +42,16 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   const fullName = `${user.firstName} ${user.lastName}`;
+
+  const handleUserWidget = () => {
+    setToggleUserWidget(!toggleUserWidget);
+    console.log("clicked");
+    console.log(toggleUserWidget);
+  };
+
+  const handleToggleScreen = () => {
+    setIsMobileMenuToggled(!isMobileMenuToggled);
+  };
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -116,10 +128,30 @@ const Navbar = () => {
           </FormControl>
         </FlexBetween>
       ) : (
-        <IconButton
-          onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}>
-          <Menu />
-        </IconButton>
+        <FlexBetween gap="0.75rem">
+          <FlexBetween mt="0.75rem" onClick={handleUserWidget}>
+            <Box
+              p="0.20rem"
+              display="flex"
+              width="30px"
+              height="30px"
+              alignItems="center"
+              sx={{
+                backgroundColor: "primary",
+                borderRadius: "50%",
+                border: toggleUserWidget
+                  ? "2px solid none"
+                  : "2px solid #00D5FA",
+              }}>
+              <UserImage image={picturePath} size="20px" />
+            </Box>
+          </FlexBetween>
+
+          <IconButton
+            onClick={toggleUserWidget ? handleUserWidget : handleToggleScreen}>
+            {toggleUserWidget ? <Close /> : <Menu />}
+          </IconButton>
+        </FlexBetween>
       )}
 
       {/* MOBILe NAV */}
@@ -134,7 +166,7 @@ const Navbar = () => {
           minWidth="300px"
           backgroundColor={background}
           // backgroundColor="grey"
-          >
+        >
           {/* CLOSE ICON */}
           <Box display="flex" justifyContent="flex-end" p="1rem">
             <IconButton
@@ -183,8 +215,7 @@ const Navbar = () => {
                     backgroundColor: neutralLight,
                   },
                 }}
-                input={<InputBase />}
-                >
+                input={<InputBase />}>
                 <MenuItem value={fullName}>
                   <Typography>{fullName}</Typography>
                 </MenuItem>

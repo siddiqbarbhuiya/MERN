@@ -40,10 +40,9 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-<script>
-if('serviceWorker' in navigator){
-    window.addEventListener('load', ()=>{
-      navigator.serviceWorker.register('../service-worker.js')
-    })
-  }
-</script>
+{/* <script>
+  if('serviceWorker' in navigator)
+  {window.addEventListener("load", () => {
+    navigator.serviceWorker.register("../service-worker.js");
+  })}
+</script> */}
